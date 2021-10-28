@@ -26,31 +26,50 @@ namespace Lab02
                 Console.WriteLine($"Area: {area}");
                 Console.WriteLine($"Width: {width}");
 
-                bool isValidYesNo = false;
-                do
-                {
-                    Console.Write("Continue? (y/n): ");
-                    string input = Console.ReadLine();
-                    if (input.Trim().ToLower() == "n")
-                    {
-                        playAgain = false;
-                        isValidYesNo = true;
-                    }
-                    else if (input.Trim().ToLower() == "y")
-                    {
-                        isValidYesNo = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Please just enter a 'y' or an 'n'.");
-                    }
-                } while (isValidYesNo == false);
+                playAgain = AskToContinue();
 
 
             } while (playAgain == true);
 
             Console.WriteLine($"Thanks for playing! Press any key to exit.");
             Console.ReadKey();
+        }
+
+        public static bool AskToContinue()
+        {
+
+            bool isValidYesNo = false;
+            bool playAgain = false;
+
+            while (isValidYesNo = false)
+            {
+                Console.Write("Continue? (y/n): ");
+                string input = Console.ReadLine();
+                if (input.Trim().ToLower() == "n")
+                {
+                    isValidYesNo = true;
+                    playAgain = false;
+                }
+                else if (input.Trim().ToLower() == "y")
+                {
+                    isValidYesNo = true;
+                    playAgain = false;
+                }
+                else
+                {
+                    Console.WriteLine($"Please just enter a 'y' or an 'n'.");
+                }
+            }
+
+            if (playAgain)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
